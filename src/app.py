@@ -45,6 +45,31 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
+@app.route('/people', methods=['GET'])
+def show_people_list():
+    return "This shows the people list"
+
+@app.route('people/<int:people_id>', methods=['GET'])
+def show_specific_person():
+    return "This show a specific person"
+
+@app.route('/planets', methods=['GET'])
+def show_planet_list():
+    return "This shows the planet list"
+
+@app.route('/planets/<int:planet_id>', methods=['GET'])
+def shows_sepcific_planet():
+    return "This shows a specific planet"
+
+@app.route('/users', methods=['GET'])
+def shows_user_list():
+    return "This shows the user list"
+
+@app.route('/users/favorites', methods=['GET'])
+def shows_user_favorite_list():
+    return "This shows the user favorites list"
+
+
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
