@@ -47,27 +47,43 @@ def handle_hello():
 
 @app.route('/people', methods=['GET'])
 def show_people_list():
-    return "This shows the people list"
+    return 'This shows the people list'
 
 @app.route('people/<int:people_id>', methods=['GET'])
 def show_specific_person():
-    return "This show a specific person"
+    return 'This show a specific person'
 
 @app.route('/planets', methods=['GET'])
 def show_planet_list():
-    return "This shows the planet list"
+    return 'This shows the planet list'
 
 @app.route('/planets/<int:planet_id>', methods=['GET'])
 def shows_sepcific_planet():
-    return "This shows a specific planet"
+    return 'This shows a specific planet'
 
 @app.route('/users', methods=['GET'])
 def shows_user_list():
-    return "This shows the user list"
+    return 'This shows the user list'
 
 @app.route('/users/favorites', methods=['GET'])
 def shows_user_favorite_list():
-    return "This shows the user favorites list"
+    return 'This shows the user favorites list'
+
+@app.route('/favorite/planet/<planet_id>', methods=['POST'])
+def post_new_planet(planet_id):
+    return 'This adds a new planet, with the id' + planet_id
+
+@app.route('/favorite/people/<people_id>', methods=['POST'])
+def post_new_people(people_id):
+    return 'This post a new people con the favorite, with the id' + people_id
+
+@app.route('/favorite/planet/<planet_id>', methods=['DELETE'])
+def delete_planet_from_favorites(planet_id):
+    return 'These deletes a planet from the favorite list, with the id' + planet_id
+
+@app.route('/favorite/people/<people_id>', methods=['DELETE'])
+def delete_person_from_favorite(people_id):
+    return 'This deletes a specific person from the list, with the id' + people_id
 
 
 # this only runs if `$ python src/app.py` is executed
